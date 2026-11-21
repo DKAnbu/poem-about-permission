@@ -27,6 +27,8 @@ and hand it home.
 
 
 def main() -> None:
+    if not 1 <= len(POEM) <= 280:
+        raise SystemExit(f"Poem length {len(POEM)} code points is outside the allowed range 1-280")
     output = Path(os.environ.get("ENTRY_OUTPUT", "/output/entry.txt"))
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(POEM, encoding="utf-8")
